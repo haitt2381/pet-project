@@ -1,7 +1,11 @@
 package com.pp.core.dto;
 
-//import com.example.petproject.common.constant.DirectionType;
-import lombok.*;
+import com.pp.core.constant.DirectionType;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Data
@@ -11,5 +15,5 @@ import lombok.experimental.FieldDefaults;
 @Builder
 public class SortInfo {
     String field;
-//    DirectionType direction;
+    DirectionType direction;
 }

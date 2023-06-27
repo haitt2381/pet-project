@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>pet-project</artifactId>
         <groupId>com.pp</groupId>
+        <artifactId>pet-project</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>pp-common</artifactId>
@@ -17,5 +17,4 @@
     <modules>
         <module>core</module>
     </modules>
-
 </project>
