@@ -2,7 +2,7 @@ package com.pp.user.specification;
 
 import com.pp.core.specification.BaseSpecification;
 import com.pp.core.util.CommonUtils;
-import com.pp.user.constant.Role;
+import com.pp.core.constant.Role;
 import com.pp.user.dto.request.GetUsersRequest;
 import com.pp.user.entity.User;
 import org.springframework.data.jpa.domain.Specification;

@@ -1,9 +1,8 @@
-package com.pp.user.dto.request;
+package com.pp.auth.dto.request;
 
 import com.pp.core.annotation.ValueOfEnum;
 import com.pp.core.constant.Role;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +10,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Data
 @NoArgsConstructor
@@ -20,31 +22,31 @@ import org.hibernate.validator.constraints.Length;
 public class CreateUserRequest {
 
     // RFC 5322 for Email Validation
-//    @ApiModelProperty(example = "admin@gmail.com", required = true)
+    @ApiModelProperty(example = "admin@gmail.com", required = true)
     @Pattern(regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "invalid")
     String email;
 
-//    @ApiModelProperty(example = "admin", required = true)
+    @ApiModelProperty(example = "admin", required = true)
     @NotBlank
     String firstName;
 
-//    @ApiModelProperty(example = "admin", required = true)
+    @ApiModelProperty(example = "admin", required = true)
     @NotBlank
     String lastName;
 
-//    @ApiModelProperty(example = "ADMIN", required = true)
+    @ApiModelProperty(example = "ADMIN", required = true)
     @ValueOfEnum(enumClass = Role.class, message = "must be any of ADMIN, MODERATOR, MEMBER")
     String role;
 
-//    @ApiModelProperty(example = "0913643812", required = true)
+    @ApiModelProperty(example = "0913643812", required = true)
     @Pattern(regexp = "^\\d{10}$", message = "invalid")
     String phoneNumber;
 
-//    @ApiModelProperty(example = "admin", required = true)
+    @ApiModelProperty(example = "admin", required = true)
     @Length(min = 2, max = 32)
     String username;
 
-//    @ApiModelProperty(example = "Password123@", required = true)
+    @ApiModelProperty(example = "Password123@", required = true)
     @Length(min = 2, max = 64)
     @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}", message = "invalid")
     String password;

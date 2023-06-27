@@ -1,8 +1,8 @@
-package com.pp.user.dto.request;
+package com.pp.auth.dto.request;
 
 import com.pp.core.annotation.ValueOfEnum;
 import com.pp.core.constant.Role;
-import javax.validation.constraints.Pattern;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import javax.validation.constraints.Pattern;
 import java.util.UUID;
 
 
@@ -20,30 +21,28 @@ import java.util.UUID;
 @Builder
 public class UpdateUserRequest {
 
-//    @ApiModelProperty(example = "6e578f8d-5edd-4db1-826c-cf2597a5fcb2", required = true)
-//    @NotBlank
-//    @Length(min = 36, max = 36)
+    @ApiModelProperty(example = "6e578f8d-5edd-4db1-826c-cf2597a5fcb2", required = true)
     UUID id;
 
     // RFC 5322 for Email Validation
-//    @ApiModelProperty(example = "admin@gmail.com")
-//    @Pattern(regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "invalid")
+    @ApiModelProperty(example = "admin@gmail.com")
+    @Pattern(regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "invalid")
     String email;
 
-//    @ApiModelProperty(example = "admin")
+    @ApiModelProperty(example = "admin")
     String firstName;
 
-//    @ApiModelProperty(example = "admin")
+    @ApiModelProperty(example = "admin")
     String lastName;
 
-//    @ApiModelProperty(example = "ADMIN")
+    @ApiModelProperty(example = "ADMIN")
     @ValueOfEnum(enumClass = Role.class, message = "must be any of ADMIN, MODERATOR, MEMBER")
     String role;
 
-//    @ApiModelProperty(example = "0913643812")
+    @ApiModelProperty(example = "0913643812")
     @Pattern(regexp = "^\\d{10}$", message = "invalid")
     String phoneNumber;
 
-//    @ApiModelProperty(example = "true")
+    @ApiModelProperty(example = "true")
     Boolean isActive;
 }

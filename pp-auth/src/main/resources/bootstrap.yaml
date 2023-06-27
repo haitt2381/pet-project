@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      profile: active
+      name: auth
+      uri: http://localhost:8082

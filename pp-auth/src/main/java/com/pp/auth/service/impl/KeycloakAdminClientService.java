@@ -1,13 +1,13 @@
-package com.pp.user.service.impl;
+package com.pp.auth.service.impl;
 
-import com.pp.core.config.KeycloakProvider;
+import com.pp.auth.config.KeycloakProvider;
+import com.pp.auth.dto.request.CreateUserRequest;
+import com.pp.auth.dto.request.UpdateUserRequest;
+import com.pp.auth.mapper.UserMapper;
+import com.pp.auth.service.IKeycloakAdminClientService;
+import com.pp.core.constant.Role;
 import com.pp.core.exception.AppErrorInfo;
 import com.pp.core.exception.AppRuntimeException;
-import com.pp.user.constant.Role;
-import com.pp.user.dto.request.CreateUserRequest;
-import com.pp.user.dto.request.UpdateUserRequest;
-import com.pp.user.mapper.UserMapper;
-import com.pp.user.service.IKeycloakAdminClientService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -48,21 +48,21 @@ public class KeycloakAdminClientService implements IKeycloakAdminClientService {
         kcUser.setEnabled(false);
         kcUser.setEmailVerified(true);
 
-        Response response = usersResource.create(kcUser);
-        if (response.getStatus() == 201) {
-            String userId = CreatedResponseUtil.getCreatedId(response);
-            String roleName = Arrays.stream(Role.values())
-                    .filter(role -> role.name().equals(user.getRole()))
-                    .findAny().orElseThrow()
-                    .getValue();
+        try (Response response = usersResource.create(kcUser)) {
+            if (response.getStatus() == 201) {
+                String userId = CreatedResponseUtil.getCreatedId(response);
+                String roleName = Arrays.stream(Role.values())
+                        .filter(role -> role.name().equals(user.getRole()))
+                        .findAny().orElseThrow()
+                        .getValue();
 
-            addRealmRoleToUser(userId, roleName);
-            return userId;
-        } else if (response.getStatus() == 409) {
-            throw new AppRuntimeException(AppErrorInfo.USER_ALREADY_EXISTS, HttpStatus.CONFLICT);
+                addRealmRoleToUser(userId, roleName);
+                return userId;
+            } else if (response.getStatus() == 409) {
+                throw new AppRuntimeException(AppErrorInfo.USER_ALREADY_EXISTS, HttpStatus.CONFLICT);
+            }
+
         }
-
-
         return null;
     }
 
@@ -103,7 +103,7 @@ public class KeycloakAdminClientService implements IKeycloakAdminClientService {
         try {
             UserResource userResource = getUserResourceById(keycloakId);
             UserRepresentation userRepresentation = userResource.toRepresentation();
-            userMapper.updateUserRepresentation(userRepresentation, updateUserRequest);
+            userMapper.updateUserRepresentation(userRepresentation ,updateUserRequest);
 
             if (Objects.nonNull(updateUserRequest.getRole())) {
                 String roleName = Arrays.stream(Role.values())
@@ -116,7 +116,7 @@ public class KeycloakAdminClientService implements IKeycloakAdminClientService {
 
             userResource.update(userRepresentation);
         } catch (Exception ex) {
-            log.error("[kcService] Update user failed: ", ex);
+            log.error("[kcService] Update user failed: ",ex);
             throw new AppRuntimeException(AppErrorInfo.UPDATE_USER_KEYCLOAK_FAILED);
         }
     }
@@ -125,8 +125,7 @@ public class KeycloakAdminClientService implements IKeycloakAdminClientService {
     public void deleteKeycloakUserById(String keycloakId) {
         RealmResource realmResource = kcProvider.getRealmResource();
 
-        try {
-            realmResource.users().delete(keycloakId);
+        try (Response response = realmResource.users().delete(keycloakId)) {
             log.info("[kcService] Delete user successfully with id: " + keycloakId);
         } catch (Exception ex) {
             throw new AppRuntimeException(AppErrorInfo.DELETE_USER_KEYCLOAK_FAILED);

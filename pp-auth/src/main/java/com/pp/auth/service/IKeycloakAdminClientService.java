@@ -1,7 +1,7 @@
-package com.pp.user.service;
+package com.pp.auth.service;
 
-import com.pp.user.dto.request.CreateUserRequest;
-import com.pp.user.dto.request.UpdateUserRequest;
+import com.pp.auth.dto.request.CreateUserRequest;
+import com.pp.auth.dto.request.UpdateUserRequest;
 import org.keycloak.admin.client.resource.UserResource;
 
 public interface IKeycloakAdminClientService {

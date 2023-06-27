@@ -1,4 +1,4 @@
-package com.pp.user.constant;
+package com.pp.core.constant;
 
 public enum Role {
     MEMBER("member"), MODERATOR("moderator"), ADMIN("admin");

@@ -1,4 +1,4 @@
-package com.pp.core.config;
+package com.pp.auth.config;
 
 import org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider;
 import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter;

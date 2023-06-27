@@ -6,8 +6,9 @@
 	<modules>
 		<module>discovery-server</module>
 		<module>config-server</module>
-		<module>pp-user</module>
 		<module>pp-common</module>
+		<module>pp-user</module>
+		<module>pp-auth</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,6 +23,12 @@
 	<description>Microservice for pet-project</description>
 	<properties>
 		<java.version>17</java.version>
+		<mapstruct.version>1.5.4.Final</mapstruct.version>
+		<keycloak.version>15.0.2</keycloak.version>
+		<swagger.version>3.0.0</swagger.version>
+		<unirest-java.version>1.4.9</unirest-java.version>
+		<spring-cloud.version>2021.0.7</spring-cloud.version>
+		<commons-collections4.version>4.4</commons-collections4.version>
 	</properties>
 	<dependencies>
 		<dependency>

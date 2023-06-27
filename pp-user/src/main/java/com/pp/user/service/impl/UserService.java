@@ -14,7 +14,6 @@ import com.pp.user.dto.response.GetUsersResponse;
 import com.pp.user.entity.User;
 import com.pp.user.mapper.UserMapper;
 import com.pp.user.repository.UserRepository;
-import com.pp.user.service.IKeycloakAdminClientService;
 import com.pp.user.service.IUserService;
 import com.pp.user.specification.UserSpecification;
 import lombok.AccessLevel;
@@ -43,8 +42,6 @@ import java.util.UUID;
 public class UserService implements IUserService {
 
     final UserRepository userRepository;
-
-    final IKeycloakAdminClientService kcService;
 
     final UserMapper userMapper;
 
@@ -102,19 +99,20 @@ public class UserService implements IUserService {
     public IdResponse createUser(CreateUserRequest request) {
         checkUserExisted(request.getEmail(), request.getUsername(), request.getPhoneNumber());
 
-        String userKeycloakId = kcService.createKeycloakUser(request);
-        if (Objects.isNull(userKeycloakId)) {
-            throw new AppRuntimeException(AppErrorInfo.CREATE_USER_KEYCLOAK_FAILED);
-        }
+        //TODO: CREATE USER KEYCLOAK
+//        String userKeycloakId = kcService.createKeycloakUser(request);
+//        if (Objects.isNull(userKeycloakId)) {
+//            throw new AppRuntimeException(AppErrorInfo.CREATE_USER_KEYCLOAK_FAILED);
+//        }
 
         User userSaved;
         try {
             User user = userMapper.toUser(request);
-            user.setUserKeycloakId(userKeycloakId);
+//            user.setUserKeycloakId(userKeycloakId);
             userSaved = userRepository.save(user);
         } catch (Exception ex) {
             log.info("Fail to create user, trying delete user keycloak", ex);
-            kcService.deleteKeycloakUserById(userKeycloakId);
+//            kcService.deleteKeycloakUserById(userKeycloakId);
             throw new AppRuntimeException(AppErrorInfo.CREATE_USER_FAILED);
         }
 
@@ -160,7 +158,7 @@ public class UserService implements IUserService {
         user.setIsActive(isActive);
 
         UpdateUserRequest updateUserRequest = UpdateUserRequest.builder().isActive(isActive).build();
-        kcService.updateKeycloakUser(user.getUserKeycloakId(), updateUserRequest);
+//        kcService.updateKeycloakUser(user.getUserKeycloakId(), updateUserRequest);
 
         User userSaved = userRepository.save(user);
         return CommonUtils.buildIdResponse(userSaved.getId());
@@ -170,7 +168,7 @@ public class UserService implements IUserService {
     public IdResponse updateUser(UpdateUserRequest request) {
         User user = getUserById(request.getId());
         userMapper.toUser(user, request);
-        kcService.updateKeycloakUser(user.getUserKeycloakId(), request);
+//        kcService.updateKeycloakUser(user.getUserKeycloakId(), request);
         User userSaved = userRepository.save(user);
 
         //TODO: send email notify user if email changed
@@ -191,7 +189,7 @@ public class UserService implements IUserService {
         UUID uuid = CommonUtils.isValidUUID(id);
         User user = getUserByIdDeleted(uuid);
         userRepository.hardDelete(id);
-        kcService.deleteKeycloakUserById(user.getUserKeycloakId());
+//        kcService.deleteKeycloakUserById(user.getUserKeycloakId());
         return CommonUtils.buildIdResponse(uuid);
     }
 

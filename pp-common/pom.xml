@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <properties>
         <java.version>17</java.version>
+        <keycloak.version>15.0.2</keycloak.version>
     </properties>
     <modules>
         <module>core</module>

@@ -1,4 +1,4 @@
-package com.pp.user.dto.data;
+package com.pp.auth.dto.data;
 
 import com.pp.core.constant.Role;
 import lombok.AccessLevel;
