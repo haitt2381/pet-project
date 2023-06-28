@@ -1,6 +1,6 @@
 package com.pp.user.dto.data;
 
-import com.pp.core.constant.Role;
+import com.pp.common.constant.Role;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

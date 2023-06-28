@@ -1,10 +1,10 @@
 package com.pp.user.service.impl;
 
-import com.pp.core.dto.IdResponse;
-import com.pp.core.exception.AppErrorInfo;
-import com.pp.core.exception.AppRuntimeException;
-import com.pp.core.util.CommonUtils;
-import com.pp.core.util.RequestUtils;
+import com.pp.common.dto.IdResponse;
+import com.pp.common.exception.AppErrorInfo;
+import com.pp.common.exception.AppRuntimeException;
+import com.pp.common.util.CommonUtils;
+import com.pp.common.util.RequestUtils;
 import com.pp.user.dto.data.UserData;
 import com.pp.user.dto.request.CreateUserRequest;
 import com.pp.user.dto.request.GetUsersRequest;

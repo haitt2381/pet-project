@@ -1,7 +1,7 @@
 package com.pp.auth.mapper;
 
 import com.pp.auth.dto.request.UpdateUserRequest;
-import com.pp.core.mapper.CommonMapper;
+import com.pp.common.mapper.CommonMapper;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;

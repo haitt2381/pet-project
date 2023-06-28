@@ -1,7 +1,7 @@
 package com.pp.user.service;
 
 
-import com.pp.core.dto.IdResponse;
+import com.pp.common.dto.IdResponse;
 import com.pp.user.dto.data.UserData;
 import com.pp.user.dto.request.CreateUserRequest;
 import com.pp.user.dto.request.GetUsersRequest;

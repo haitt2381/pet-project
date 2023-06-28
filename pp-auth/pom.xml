@@ -93,13 +93,7 @@
         <!--        App-core        -->
         <dependency>
             <groupId>com.pp</groupId>
-            <artifactId>core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.pp</groupId>
-            <artifactId>swagger</artifactId>
+            <artifactId>pp-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

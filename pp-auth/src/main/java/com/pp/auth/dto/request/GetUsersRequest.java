@@ -1,6 +1,6 @@
 package com.pp.auth.dto.request;
 
-import com.pp.core.dto.BaseRequest;
+import com.pp.common.dto.BaseRequest;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

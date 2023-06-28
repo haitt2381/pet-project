@@ -1,7 +1,7 @@
 package com.pp.user.entity;
 
-import com.pp.core.entity.AuditEntity;
-import com.pp.core.constant.Role;
+import com.pp.common.entity.AuditEntity;
+import com.pp.common.constant.Role;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package com.pp.user.dto.request;
 
-import com.pp.core.annotation.ValueOfEnum;
-import com.pp.core.constant.Role;
+import com.pp.common.annotation.ValueOfEnum;
+import com.pp.common.constant.Role;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import lombok.AccessLevel;

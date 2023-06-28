@@ -83,14 +83,12 @@
 			<version>${mapstruct.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
-		<!--		core-module			-->
 		<dependency>
 			<groupId>com.pp</groupId>
-			<artifactId>core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
+			<artifactId>pp-common</artifactId>
 		</dependency>
+
+		<!--		core-module			-->
 	</dependencies>
 	
 	<dependencyManagement>

@@ -1,6 +1,6 @@
 package com.pp.user.dto.request;
 
-import com.pp.core.dto.BaseRequest;
+import com.pp.common.dto.BaseRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

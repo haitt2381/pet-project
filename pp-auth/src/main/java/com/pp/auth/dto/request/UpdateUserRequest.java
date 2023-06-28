@@ -1,7 +1,7 @@
 package com.pp.auth.dto.request;
 
-import com.pp.core.annotation.ValueOfEnum;
-import com.pp.core.constant.Role;
+import com.pp.common.annotation.ValueOfEnum;
+import com.pp.common.constant.Role;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

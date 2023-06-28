@@ -1,6 +1,6 @@
 package com.pp.user.dto.response;
 
-import com.pp.core.dto.BaseResponse;
+import com.pp.common.dto.BaseResponse;
 import com.pp.user.dto.data.UserData;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

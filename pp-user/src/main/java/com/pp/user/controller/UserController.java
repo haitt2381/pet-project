@@ -1,6 +1,6 @@
 package com.pp.user.controller;
 
-import com.pp.core.dto.IdResponse;
+import com.pp.common.dto.IdResponse;
 import com.pp.user.dto.request.CreateUserRequest;
 import com.pp.user.dto.request.GetUsersRequest;
 import com.pp.user.dto.request.UpdateUserRequest;
