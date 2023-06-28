@@ -1,4 +1,4 @@
-package com.pp.auth.config;
+package com.pp.swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

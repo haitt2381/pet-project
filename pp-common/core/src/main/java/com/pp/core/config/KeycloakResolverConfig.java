@@ -1,4 +1,4 @@
-package com.pp.auth.config;
+package com.pp.core.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;

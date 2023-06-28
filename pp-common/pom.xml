@@ -17,5 +17,6 @@
     </properties>
     <modules>
         <module>core</module>
+        <module>swagger</module>
     </modules>
 </project>

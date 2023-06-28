@@ -3,7 +3,7 @@ package com.pp.auth;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"com.pp.core", "com.pp.auth"})
+@SpringBootApplication(scanBasePackages = {"com.pp.core", "com.pp.swagger", "com.pp.auth"})
 public class PpAuthApplication {
 
     public static void main(String[] args) {
